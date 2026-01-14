@@ -34,7 +34,8 @@ class Settings(BaseSettings):
     
     class Config:
         env_file = ".env"
-        case_sensitive = True  # 区分大小写的变量名
+        case_sensitive = False  # 不区分大小写的变量名
+        extra = "ignore"
 
 @lru_cache()
 def get_settings():
