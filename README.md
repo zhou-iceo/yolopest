@@ -84,6 +84,18 @@ pip install -r requirements.txt
 # 安装本地修改的YOLOv12
 pip install -e ./ultralytics
 
+# 通过docker安装PostgreSQL
+docker run -d \
+  --name yolopest-db \
+  -e POSTGRES_USER=yolopest \
+  -e POSTGRES_PASSWORD=yolopest \
+  -e POSTGRES_DB=yolopest \
+  -p 5432:5432 \
+  -v ${PWD}/pgdata:/var/lib/postgresql/data \
+  postgres:16
+
+或者docker run -d --name yolopest-db -e POSTGRES_USER=yolopest -e POSTGRES_PASSWORD=yolopest -e POSTGRES_DB=yolopest -p 5432:5432 -v ${PWD}/pgdata:/var/lib/postgresql/data postgres:16
+
 # 初始化数据库表结构
 python create_tables.py
 
