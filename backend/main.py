@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-load_dotenv()  # 注入 .env 到 os.environ
+load_dotenv()  #  注入 .env 到 os.environ
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
